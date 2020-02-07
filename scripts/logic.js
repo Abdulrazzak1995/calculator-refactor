@@ -21,23 +21,56 @@ const doMathTests = [
 ];
 
 // refactor the logic from the calculator tutorial into this function
-function doMath(operation, a, b) {
-  // these if statements make sure all arguments are the correct type
+function doMath(operation, x, y) {
+  try {
+   // these if statements make sure all arguments are the correct type
   // they will throw errors if your handler passes the wrong type arguments
+    console.log(x);
+    console.log(y);
+    console.log(operation);
+ 
   if (typeof operation !== 'string') {
     throw new Error('operation should be a string');
-  }
-  if (typeof a !== 'number') {
-    throw new Error('a should be a number');
-  }
-  if (typeof b !== 'number') {
-    throw new Error('b should be a number');
-  }
+  } else if (
+    !(
+      operation === "add" ||
+      operation === "min" ||
+      operation === "div" ||
+      operation === "mul"
+    )
+    ) {
+      return "invalid operation";
+
+    } else if (typeof x !== "number") {
+      throw new Error("Value1 should be a number.");
+    } else if (typeof y !== "number") {
+      throw new Error("Value2 should be a number.");
+    } else {
   // write your code below this comment:
-
-
+  var calculate;
+  var x = parseInt(x);
+  var y = parseInt(y);
+  if (operation === "add") {
+    calculate = x + y;
+  } else if (operation === "min") {
+    calculate = x - y;
+  } else if (operation === "div") {
+    calculate = x / y;
+  } else if (operation === "mul") {
+    calculate = x  * y;
+  }
+  console.log(calculate);
+  return calculate;
 
 }
+}
+catch (err) {
+document.getElementById("results").innerHTML = err.message;
+}
+}
+
+
+
 
 
 testing(doMath, doMathTests);
