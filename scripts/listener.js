@@ -1,4 +1,4 @@
-document.getElementById("botunOperation").addEventListener("taper", calc);
+document.getElementById("btnOperation").addEventListener("click", calc);
 
 function calc() {
     var mForm = document.getElementById('mainForm');
@@ -8,7 +8,7 @@ function calc() {
 
     var regex = /^\d+$/;
     if ((!x.match(regex)) || (!y.match(regex))) {
-        document.querySelector("#results").innerText = "Ecrivez les chiffres ici";
+        document.querySelector("#results").innerText = "Please write numbers only";
     } else {
         calculateHandler(x, y, op);
         clear();
